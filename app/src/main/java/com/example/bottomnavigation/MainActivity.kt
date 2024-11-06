@@ -20,23 +20,26 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        // id of each items
+        // Define the id of each items in the menu
         val homeId = R.id.home
         val settingId = R.id.setting
         val profileId = R.id.profile
 
-        // id of each fragment
+        // Define the id of each fragment
         val fragmentHomeId = R.id.homeFragment
         val fragmentSettingId = R.id.settingFragment
         val fragmentProfileId = R.id.profileFragment
 
-        // id of fragment container
+        // Define the id of the fragment container
         val fragmentContainer = R.id.fragmentContainer
 
-        // binding bottom navigation
+        // Binding bottom navigation view
         val bottomNav = binding.bottomNav
 
-        // bottom navigation listener
+        // Set the listener for the bottom navigation view
+        /** The ID defined above is used to compare with the item ID in the bottom navigation.
+         *  If they match, it triggers navigation to the corresponding screen.
+         * */
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 homeId -> {
