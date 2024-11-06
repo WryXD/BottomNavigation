@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         // Set the listener for the bottom navigation view
         /** The ID defined above is used to compare with the item ID in the bottom navigation.
-         *  If they match, it triggers navigation to the corresponding screen.
+         *  If they match, it triggers navigation to the corresponding fragment.
          * */
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
