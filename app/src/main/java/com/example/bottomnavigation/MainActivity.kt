@@ -1,42 +1,57 @@
 package com.example.bottomnavigation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.bottomnavigation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    // binding view
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
-        val bottomNav = binding.bottomNav
+        // id of each items
+        val homeId = R.id.home
+        val settingId = R.id.setting
+        val profileId = R.id.profile
 
+        // id of each fragment
+        val fragmentHomeId = R.id.homeFragment
+        val fragmentSettingId = R.id.settingFragment
+        val fragmentProfileId = R.id.profileFragment
+
+        // id of fragment container
         val fragmentContainer = R.id.fragmentContainer
 
+        // binding bottom navigation
+        val bottomNav = binding.bottomNav
+
+        // bottom navigation listener
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> {
+                homeId -> {
                     // Respond to navigation item 1 click
-                    findNavController(fragmentContainer).navigate(R.id.homeFragment)
-                    Log.d("TAG", "onCreate: home")
+                    findNavController(fragmentContainer).navigate(fragmentHomeId)
                     true
                 }
 
-                R.id.setting -> {
-                    Log.d("TAG", "onCreate: setting")
-                    findNavController(fragmentContainer).navigate(R.id.settingFragment)
+                settingId -> {
+                    findNavController(fragmentContainer).navigate(fragmentSettingId)
                     true
                 }
 
-                R.id.profile -> {
-                    Log.d("TAG", "onCreate: profile")
-                    findNavController(fragmentContainer).navigate(R.id.profileFragment)
+                profileId -> {
+                    findNavController(fragmentContainer).navigate(fragmentProfileId)
                     true
                 }
 
